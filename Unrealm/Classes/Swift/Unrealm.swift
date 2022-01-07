@@ -456,7 +456,7 @@ fileprivate func convert<T: NSObject>(val: Any, to objectType: T.Type) -> AnyObj
 
 				#if os(iOS)
 				if #available(iOS 11.0, *) {
-					if let data = try? NSKeyedArchiver.archivedData(withRootObject: dic, requiringSecureCoding: true) {
+					if let data = try? NSKeyedArchiver.archivedData(withRootObject: dic, requiringSecureCoding: false) {
 						obj.setValue(data, forKey: label)
 					}
 				} else {
@@ -465,7 +465,7 @@ fileprivate func convert<T: NSObject>(val: Any, to objectType: T.Type) -> AnyObj
 				}
 				#elseif os(OSX)
 				if #available(OSX 10.13, *) {
-					if let data = try? NSKeyedArchiver.archivedData(withRootObject: dic, requiringSecureCoding: true) {
+					if let data = try? NSKeyedArchiver.archivedData(withRootObject: dic, requiringSecureCoding: false) {
 						obj.setValue(data, forKey: label)
 					}
 				} else {
